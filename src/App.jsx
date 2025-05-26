@@ -4,11 +4,11 @@ import Header from "./Components/Header";
 
 function App() {
   return (
-    <>
+    <div className="max-w-6xl mx-auto">
       <Header />
       <Banner />
       <Footer />
-    </>
+    </div>
   );
 }
 

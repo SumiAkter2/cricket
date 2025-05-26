@@ -2,7 +2,7 @@ import coinImg from "../assets/imgs/coin.png";
 import logoImg from "../assets/imgs/logo-brand.png";
 const Header = () => {
   return (
-    <div className="mx-12">
+    <div className="">
       <div className="flex  justify-between items-center">
         <a href="/">
           <img src={logoImg} alt="logo-image" />
