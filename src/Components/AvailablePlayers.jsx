@@ -8,14 +8,12 @@ const AvailablePlayers = () => {
       .then((res) => res.json())
       .then((data) => setAllPlayers(data));
   }, []);
-  return (
-    <div>
-      <h1 className="text-2xl font-bold">akl ddd Players</h1>
 
-      <div>
-        <h1>{allPlayers.length}</h1>
+  return (
+    <div className="my-12">
+      <div className="grid md:grid-cols-3 gap-8 ">
         {allPlayers.map((player) => (
-          <AvailablePlayer player={player}></AvailablePlayer>
+          <AvailablePlayer player={player} key={player.key}></AvailablePlayer>
         ))}
       </div>
     </div>

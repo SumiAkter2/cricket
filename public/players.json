@@ -3,108 +3,108 @@
     "id": 1,
     "name": "Ben Stokes",
     "country": "England",
-    "batting_hand": "Left-hand bat",
-    "all_rounder": true,
-    "price": "$2.3 million",
-    "image": "https://resources.pulse.icc-cricket.com/photo-resources/2022/10/04/e4e51ae0-fcf8-4052-9963-b69aaed17c20/Ben-Stokes.jpg"
+    "batting_hand": "Left-hand",
+    "role": "All-Rounder",
+    "price": 120000,
+    "image": "../src/assets/imgs/player/img-1.jpeg"
   },
   {
     "id": 2,
     "name": "Babar Azam",
     "country": "Pakistan",
-    "batting_hand": "Right-hand bat",
-    "all_rounder": false,
-    "price": "$1.8 million",
-    "image": "https://resources.pulse.icc-cricket.com/photo-resources/2023/01/09/f5a77037-95a5-4c32-94b8-7d177df6730f/Babar-Azam.jpg"
+    "batting_hand": "Right-hand",
+    "role": "Batsman",
+    "price": 98000,
+    "image": "../src/assets/imgs/player/img-2.jpeg"
   },
   {
     "id": 3,
     "name": "Steve Smith",
     "country": "Australia",
-    "batting_hand": "Right-hand bat",
-    "all_rounder": false,
-    "price": "$2.0 million",
-    "image": "https://resources.pulse.icc-cricket.com/photo-resources/2023/01/09/86b80b94-d2e9-40c7-84a5-cb7986f7744a/Steve-Smith.jpg"
+    "batting_hand": "Right-hand",
+    "role": "Batsman",
+    "price": 105000,
+    "image": "../src/assets/imgs/player/img-3.jpeg"
   },
   {
     "id": 4,
     "name": "Shakib Al Hasan",
     "country": "Bangladesh",
-    "batting_hand": "Left-hand bat",
-    "all_rounder": true,
-    "price": "$1.7 million",
-    "image": "https://resources.pulse.icc-cricket.com/photo-resources/2023/01/09/b1f50e3b-2eae-42fd-b1dc-c0f7f90e299a/Shakib-Al-Hasan.jpg"
+    "batting_hand": "Left-hand",
+    "role": "All-Rounder",
+    "price": 75000,
+    "image": "../src/assets/imgs/player/img-4.jpeg"
   },
   {
     "id": 5,
     "name": "Kane Williamson",
     "country": "New Zealand",
-    "batting_hand": "Right-hand bat",
-    "all_rounder": false,
-    "price": "$1.9 million",
-    "image": "https://resources.pulse.icc-cricket.com/photo-resources/2023/01/09/c2d79391-81a7-44cd-94c7-245038e2d2d3/Kane-Williamson.jpg"
+    "batting_hand": "Right-hand",
+    "role": "Batsman",
+    "price": 90000,
+    "image": "../src/assets/imgs/player/img-5.jpeg"
   },
   {
     "id": 6,
     "name": "Rashid Khan",
     "country": "Afghanistan",
-    "batting_hand": "Right-hand bat",
-    "all_rounder": true,
-    "price": "$1.6 million",
-    "image": "https://resources.pulse.icc-cricket.com/photo-resources/2023/01/09/7ad4a443-1821-4c70-a178-1d61bb64abd4/Rashid-Khan.jpg"
+    "batting_hand": "Right-hand",
+    "role": "All-Rounder",
+    "price": 97000,
+    "image": "../src/assets/imgs/player/img-6.jpeg"
   },
   {
     "id": 7,
     "name": "David Warner",
     "country": "Australia",
-    "batting_hand": "Left-hand bat",
-    "all_rounder": false,
-    "price": "$1.9 million",
-    "image": "https://resources.pulse.icc-cricket.com/photo-resources/2023/01/09/8088b3ef-6ed5-4ad9-8b57-255fb209c204/David-Warner.jpg"
+    "batting_hand": "Left-hand",
+    "role": "Batsman",
+    "price": 110000,
+    "image": "../src/assets/imgs/player/img-8.jpeg"
   },
   {
     "id": 8,
     "name": "Jos Buttler",
     "country": "England",
-    "batting_hand": "Right-hand bat",
-    "all_rounder": false,
-    "price": "$2.2 million",
-    "image": "https://resources.pulse.icc-cricket.com/photo-resources/2023/01/09/ee073fdd-81c2-49bc-bfb4-352be5f9c8e2/Jos-Buttler.jpg"
+    "batting_hand": "Right-hand",
+    "role": "Wicket-keeper",
+    "price": 88000,
+    "image": "../src/assets/imgs/player/img-9.jpeg"
   },
   {
     "id": 9,
     "name": "Andre Russell",
     "country": "West Indies",
-    "batting_hand": "Right-hand bat",
-    "all_rounder": true,
-    "price": "$2.5 million",
-    "image": "https://resources.pulse.icc-cricket.com/photo-resources/2022/10/04/fbb93036-cfa6-41b5-94dc-1f519ef867ee/Andre-Russell.jpg"
+    "batting_hand": "Right-hand",
+    "role": "All-Rounder",
+    "price": 70000,
+    "image": "../src/assets/imgs/player/img-10.jpeg"
   },
   {
     "id": 10,
     "name": "Quinton de Kock",
     "country": "South Africa",
-    "batting_hand": "Left-hand bat",
-    "all_rounder": false,
-    "price": "$1.8 million",
-    "image": "https://resources.pulse.icc-cricket.com/photo-resources/2023/01/09/66f80871-0b4e-4b37-bc2d-3c62a47dc58b/Quinton-de-Kock.jpg"
+    "batting_hand": "Left-hand",
+    "role": "Wicket-keeper",
+    "price": 85000,
+    "image": "../src/assets/imgs/player/img-11.jpeg"
   },
   {
     "id": 11,
     "name": "Glenn Maxwell",
     "country": "Australia",
-    "batting_hand": "Right-hand bat",
-    "all_rounder": true,
-    "price": "$2.0 million",
-    "image": "https://resources.pulse.icc-cricket.com/photo-resources/2023/10/02/64f5dd95-9948-4a41-a116-7392b11dcbb4/Glenn-Maxwell.jpg"
+    "batting_hand": "Right-hand",
+    "role": "All-Rounder",
+    "price": 115000,
+    "image": "../src/assets/imgs/player/img-12.jpeg"
   },
   {
     "id": 12,
     "name": "Shaheen Afridi",
     "country": "Pakistan",
-    "batting_hand": "Left-hand bat",
-    "all_rounder": false,
-    "price": "$1.7 million",
-    "image": "https://resources.pulse.icc-cricket.com/photo-resources/2023/09/14/ccdf6b16-7280-4ab4-b60f-56e2a6c0ab14/Shaheen-Afridi.jpg"
+    "batting_hand": "Left-hand",
+    "role": "Bowler",
+    "price": 45000,
+    "image": "../src/assets/imgs/player/img-7.jpeg"
   }
 ]
