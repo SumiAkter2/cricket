@@ -11,16 +11,18 @@ function App() {
     console.log("added coin");
     setFreeCoin(freeCoin + 80000);
     toast("Hurrey ! Free Coin Addded!", {
-      className: " text-center flex justify-center",
+      className: "toastBody",
     });
     console.log(freeCoin);
   };
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto ">
       <Header freeCoin={freeCoin} />
       <Banner handleAddFreeCoin={handleAddFreeCoin} />
       <Footer />
-      <ToastContainer />
+      <div className="relative ">
+        <ToastContainer className="absolute w-full left-[40%]" />
+      </div>
     </div>
   );
 }
