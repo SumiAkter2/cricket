@@ -1,10 +1,8 @@
 import { FaFlag, FaUser } from "react-icons/fa";
 
-const AvailablePlayer = ({ player }) => {
-  const { image, name, id, country, batting_hand, role, price } = player;
-  const handleChoosePlayer = (id) => {
-    console.log(id);
-  };
+const AvailablePlayer = ({ player, handleChoosePlayer }) => {
+  const { image, name, country, batting_hand, role, price } = player;
+
   return (
     <div className="flex justify-center w-[350px] p-8 border border-gray-300 rounded-2xl">
       <div>
@@ -27,7 +25,7 @@ const AvailablePlayer = ({ player }) => {
           <p className="text-gray-800 flex justify-start items-center gap-x-1 ">
             Batting
           </p>
-          <p clssName="text-gray-500  ">{batting_hand}</p>
+          <p className="text-gray-500  ">{batting_hand}</p>
         </div>
         <div className=" flex justify-between items-center mt-2">
           <p className="text-gray-800 flex justify-start items-center gap-x-1 ">

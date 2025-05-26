@@ -3,8 +3,3 @@
 body {
   font-family: "Ancizar Sans", sans-serif;
 }
-.toastBody {
-  display: flex;
-  justify-content: center;
-  color: #000000bb;
-}

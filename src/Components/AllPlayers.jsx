@@ -2,7 +2,7 @@ import { useState } from "react";
 import AvailablePlayers from "./AvailablePlayers";
 import SelectedPlayers from "./SelectedPlayers";
 
-const AllPlayers = () => {
+const AllPlayers = ({ handleChoosePlayer, selecPlayers }) => {
   const [aviable, setAvailable] = useState(true);
   const handleAvailable = () => {
     setAvailable(true);
@@ -13,7 +13,7 @@ const AllPlayers = () => {
     console.log("selected", aviable);
   };
   return (
-    <div className="my-8">
+    <div className="my-4">
       <div className="flex justify-between -items-center">
         <h1 className="text-2xl font-bold">Available Players</h1>
 
@@ -36,11 +36,17 @@ const AllPlayers = () => {
                 : `bg-transparent px-4 py-2 cursor-pointer rounded-l-md text-gray-500`
             }`}
           >
-            Selected (0)
+            Selected ({selecPlayers})
           </button>
         </div>
       </div>
-      <div>{aviable === true ? <AvailablePlayers /> : <SelectedPlayers />}</div>
+      <div>
+        {aviable === true ? (
+          <AvailablePlayers handleChoosePlayer={handleChoosePlayer} />
+        ) : (
+          <SelectedPlayers selecPlayers={selecPlayers} />
+        )}
+      </div>
     </div>
   );
 };
