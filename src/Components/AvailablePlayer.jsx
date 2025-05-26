@@ -4,7 +4,7 @@ const AvailablePlayer = ({ player, handleChoosePlayer }) => {
   const { image, name, country, batting_hand, role, price } = player;
 
   return (
-    <div className="flex justify-center w-[350px] p-8 border border-gray-300 rounded-2xl">
+    <div className="flex justify-center w-[360px] p-8 border border-gray-300 rounded-2xl">
       <div>
         <img
           className="w-[300px] h-[250px] object-fit rounded-2xl"

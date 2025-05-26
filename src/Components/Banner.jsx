@@ -2,14 +2,14 @@ import bannerImg from "../assets/imgs/banner-2.png";
 import bgImg from "../assets/imgs/bg-1.png";
 const Banner = ({ handleAddFreeCoin }) => {
   return (
-    <div className="relative h-[500px] w-full bg-black rounded-3xl my-8">
+    <div className="relative h-[500px] w-full bg-black rounded-3xl mt-28">
       <img
-        className="h-[500px] w-full  rounded-3xl z-10"
+        className="h-[500px] w-full  rounded-3xl "
         src={bgImg}
         alt="bg-img"
       />
 
-      <div className="text-white flex flex-col justify-center items-center h-full absolute z-50 top-0 md:left-54">
+      <div className="text-white flex flex-col justify-center items-center h-full absolute z-30 top-0 md:left-54">
         <img
           className="md:w-[200px] w-[150px]"
           src={bannerImg}

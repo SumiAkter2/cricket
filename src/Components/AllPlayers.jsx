@@ -2,7 +2,7 @@ import { useState } from "react";
 import AvailablePlayers from "./AvailablePlayers";
 import SelectedPlayers from "./SelectedPlayers";
 
-const AllPlayers = ({ handleChoosePlayer, selecPlayers }) => {
+const AllPlayers = ({ handleChoosePlayer, selectedPlayers }) => {
   const [aviable, setAvailable] = useState(true);
   const handleAvailable = () => {
     setAvailable(true);
@@ -13,11 +13,11 @@ const AllPlayers = ({ handleChoosePlayer, selecPlayers }) => {
     console.log("selected", aviable);
   };
   return (
-    <div className="my-4">
-      <div className="flex justify-between -items-center">
+    <div className="my-12 ">
+      <div className="flex justify-between items-center ">
         <h1 className="text-2xl font-bold">Available Players</h1>
 
-        <div className="flex  justify-center items-center border border-gray-300 rounded-md font-bold cursor-pointer gap-0">
+        <div className="flex  justify-center items-center border border-gray-300 rounded-md font-bold cursor-pointer gap-0 ">
           <button
             onClick={handleAvailable}
             className={`${
@@ -36,7 +36,7 @@ const AllPlayers = ({ handleChoosePlayer, selecPlayers }) => {
                 : `bg-transparent px-4 py-2 cursor-pointer rounded-l-md text-gray-500`
             }`}
           >
-            Selected ({selecPlayers})
+            Selected ({selectedPlayers.length})
           </button>
         </div>
       </div>
@@ -44,7 +44,7 @@ const AllPlayers = ({ handleChoosePlayer, selecPlayers }) => {
         {aviable === true ? (
           <AvailablePlayers handleChoosePlayer={handleChoosePlayer} />
         ) : (
-          <SelectedPlayers selecPlayers={selecPlayers} />
+          <SelectedPlayers selectedPlayers={selectedPlayers} />
         )}
       </div>
     </div>

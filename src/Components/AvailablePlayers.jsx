@@ -11,7 +11,7 @@ const AvailablePlayers = ({ handleChoosePlayer }) => {
 
   return (
     <div className="my-6">
-      <div className="grid md:grid-cols-3 gap-8 ">
+      <div className="grid md:grid-cols-3 gap-6 ">
         {allPlayers.map((player) => (
           <AvailablePlayer
             player={player}

@@ -2,8 +2,8 @@ import coinImg from "../assets/imgs/coin.png";
 import logoImg from "../assets/imgs/logo-brand.png";
 const Header = ({ freeCoin }) => {
   return (
-    <div className="">
-      <div className="flex  justify-between items-center">
+    <div className="fixed top-0 md:w-6xl w-full  z-50 rounded-xl">
+      <div className=" flex bg-base-300/50 backdrop-blur-3xl justify-between items-center  px-6 pb-3 ">
         <a href="/">
           <img src={logoImg} alt="logo-image" />
         </a>

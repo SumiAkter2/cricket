@@ -7,12 +7,11 @@ import Header from "./Components/Header";
 
 function App() {
   const [freeCoin, setFreeCoin] = useState(0);
-  const [selecPlayers, setSelecPlayers] = useState(0);
+  const [selectedPlayers, setSelectedPlayers] = useState([]);
 
   const handleAddFreeCoin = () => {
-    console.log("added coin", freeCoin);
+    // console.log("added coin", freeCoin);
     setFreeCoin(freeCoin + 80000);
-    // toast("Hurrey ! Free Coin Addded!", {});
     toast.success("🎉 Free Coin Addded!", {
       position: "top-center",
       autoClose: 1000,
@@ -26,27 +25,22 @@ function App() {
     });
   };
   // handle choose player:
-  const handleChoosePlayer = (selectedPlayer) => {
-    // console.log("available free coin:", freeCoin);
-    if (freeCoin >= selectedPlayer.price && selecPlayers < 6) {
-      setSelecPlayers(selecPlayers + 1);
+  const handleChoosePlayer = (choosePlayer) => {
+    if (freeCoin >= choosePlayer.price && selectedPlayers.length < 6) {
+      setSelectedPlayers([...selectedPlayers, choosePlayer]);
 
-      if (freeCoin >= selectedPlayer.price) {
-        toast.success("😊 Hurrey! Selected player", {
-          position: "top-center",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        });
-        console.log("price");
-      }
-    } else if (freeCoin < selectedPlayer.price && selecPlayers < 6) {
-      console.log("sorry not available");
+      toast.success("😊 Hurrey! Selected player", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    } else if (freeCoin < choosePlayer.price && selectedPlayers.length < 6) {
       toast.error("😢 Sorry! Insufficient balance!", {
         position: "top-center",
         autoClose: 2000,
@@ -58,8 +52,7 @@ function App() {
         theme: "light",
         transition: Bounce,
       });
-    } else if (selecPlayers <= 6) {
-      console.log("6 players");
+    } else if (selectedPlayers.length <= 6) {
       toast.error("Sorry! you can added only 6 players.", {
         position: "top-center",
         autoClose: 2000,
@@ -80,7 +73,7 @@ function App() {
         <Banner handleAddFreeCoin={handleAddFreeCoin} />
         <AllPlayers
           handleChoosePlayer={handleChoosePlayer}
-          selecPlayers={selecPlayers}
+          selectedPlayers={selectedPlayers}
         />
 
         <div className="relative ">
