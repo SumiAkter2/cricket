@@ -9,82 +9,58 @@ import Newsletter from "./Components/Newsletter";
 function App() {
   const [freeCoin, setFreeCoin] = useState(0);
   const [selectedPlayers, setSelectedPlayers] = useState([]);
-
+  const toastOptions = {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    transition: Bounce,
+  };
   const handleAddFreeCoin = () => {
     setFreeCoin(freeCoin + 80000);
-    toast.success("🎉 Free Coin Addded!", {
-      position: "top-center",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-    });
+    toast.success("🎉 Free Coin Addded!", toastOptions);
   };
   // handle choose player:
   const handleChoosePlayer = (choosePlayer) => {
-    if (freeCoin >= choosePlayer.price && selectedPlayers.length < 6) {
-      setSelectedPlayers([...selectedPlayers, choosePlayer]);
-      setFreeCoin(freeCoin - choosePlayer?.price);
-      console.log(freeCoin);
+    if (selectedPlayers.length >= 6) {
+      toast.warn("❌ Sorry! you can added only 6 players.", toastOptions);
+      return;
+    } else if (freeCoin < choosePlayer.price) {
+      toast.warn("😢 Sorry! Insufficient balance!", toastOptions);
+      return;
+    }
 
-      toast.success("😊 Hurrey! Selected player", {
-        position: "top-center",
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-      });
-    } else if (freeCoin < choosePlayer.price && selectedPlayers.length < 6) {
-      toast.warn("😢 Sorry! Insufficient balance!", {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-      });
-    } else if (selectedPlayers.length <= 6) {
-      toast.warn("Sorry! you can added only 6 players.", {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-      });
+    setSelectedPlayers([...selectedPlayers, choosePlayer]);
+    setFreeCoin(freeCoin - choosePlayer?.price);
+    console.log(freeCoin);
+
+    toast.success("😊 Hurrey! Selected player", toastOptions);
+
+    const alreadyAdded = selectedPlayers.some(
+      (pl) => pl.id === choosePlayer.id
+    );
+    if (alreadyAdded) {
+      toast.warn("❌ Sorry! you cann't add same player.", toastOptions);
     }
   };
 
   // handle remove player:
   const handleRemovePlayer = (player) => {
+    const confirmedRemove = window.confirm(
+      `Are you sure  to remove Player ${player.name}`
+    );
+    if (!confirmedRemove) {
+      toast.success("✅  Not Removed !", toastOptions);
+      return;
+    }
     const remainingPlayer = selectedPlayers.filter((pl) => pl.id !== player.id);
-    toast.error("Removed Player Done!", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-    });
+    toast.error("🚫 Removed Player!", toastOptions);
     setSelectedPlayers(remainingPlayer);
-    console.log("remove:", player, selectedPlayers);
+    // console.log("remove:", player, selectedPlayers);
   };
   return (
     <div>
@@ -98,7 +74,7 @@ function App() {
         />
       </div>
       <div className="relative">
-        <div className="absolute -top-40">
+        <div className="md:absolute -top-40">
           <Newsletter />
         </div>
         <Footer />
