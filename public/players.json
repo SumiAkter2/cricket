@@ -6,7 +6,7 @@
     "batting_hand": "Left-hand",
     "role": "All-Rounder",
     "price": 120000,
-    "image": "../src/assets/imgs/player/img-1.jpeg"
+    "image": "./player/img-1.jpeg"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "batting_hand": "Right-hand",
     "role": "Batsman",
     "price": 98000,
-    "image": "../src/assets/imgs/player/img-2.jpeg"
+    "image": "./player/img-2.jpeg"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "batting_hand": "Right-hand",
     "role": "Batsman",
     "price": 105000,
-    "image": "../src/assets/imgs/player/img-3.jpeg"
+    "image": "./player/img-3.jpeg"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "batting_hand": "Left-hand",
     "role": "All-Rounder",
     "price": 75000,
-    "image": "../src/assets/imgs/player/img-4.jpeg"
+    "image": "./player/img-4.jpeg"
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "batting_hand": "Right-hand",
     "role": "Batsman",
     "price": 90000,
-    "image": "../src/assets/imgs/player/img-5.jpeg"
+    "image": "./player/img-5.jpeg"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "batting_hand": "Right-hand",
     "role": "All-Rounder",
     "price": 97000,
-    "image": "../src/assets/imgs/player/img-6.jpeg"
+    "image": "./player/img-6.jpeg"
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "batting_hand": "Left-hand",
     "role": "Batsman",
     "price": 110000,
-    "image": "../src/assets/imgs/player/img-8.jpeg"
+    "image": "./player/img-8.jpeg"
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "batting_hand": "Right-hand",
     "role": "Wicket-keeper",
     "price": 88000,
-    "image": "../src/assets/imgs/player/img-9.jpeg"
+    "image": "./player/img-9.jpeg"
   },
   {
     "id": 9,
@@ -78,7 +78,7 @@
     "batting_hand": "Right-hand",
     "role": "All-Rounder",
     "price": 70000,
-    "image": "../src/assets/imgs/player/img-10.jpeg"
+    "image": "./player/img-10.jpeg"
   },
   {
     "id": 10,
@@ -87,7 +87,7 @@
     "batting_hand": "Left-hand",
     "role": "Wicket-keeper",
     "price": 85000,
-    "image": "../src/assets/imgs/player/img-11.jpeg"
+    "image": "./player/img-11.jpeg"
   },
   {
     "id": 11,
@@ -96,7 +96,7 @@
     "batting_hand": "Right-hand",
     "role": "All-Rounder",
     "price": 115000,
-    "image": "../src/assets/imgs/player/img-12.jpeg"
+    "image": "./player/img-12.jpeg"
   },
   {
     "id": 12,
@@ -105,6 +105,6 @@
     "batting_hand": "Left-hand",
     "role": "Bowler",
     "price": 45000,
-    "image": "../src/assets/imgs/player/img-7.jpeg"
+    "image": "./player/img-7.jpeg"
   }
 ]
