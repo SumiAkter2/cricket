@@ -41,7 +41,7 @@ function App() {
         transition: Bounce,
       });
     } else if (freeCoin < choosePlayer.price && selectedPlayers.length < 6) {
-      toast.error("😢 Sorry! Insufficient balance!", {
+      toast.warn("😢 Sorry! Insufficient balance!", {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: false,
@@ -53,7 +53,7 @@ function App() {
         transition: Bounce,
       });
     } else if (selectedPlayers.length <= 6) {
-      toast.error("Sorry! you can added only 6 players.", {
+      toast.warn("Sorry! you can added only 6 players.", {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: false,
@@ -66,6 +66,24 @@ function App() {
       });
     }
   };
+
+  // handle remove player:
+  const handleRemovePlayer = (player) => {
+    const remainingPlayer = selectedPlayers.filter((pl) => pl.id !== player.id);
+    toast.error("Removed Player Done!", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
+    setSelectedPlayers(remainingPlayer);
+    console.log("remove:", player, selectedPlayers);
+  };
   return (
     <div>
       <div className="max-w-6xl mx-auto ">
@@ -74,6 +92,7 @@ function App() {
         <AllPlayers
           handleChoosePlayer={handleChoosePlayer}
           selectedPlayers={selectedPlayers}
+          handleRemovePlayer={handleRemovePlayer}
         />
 
         <div className="relative ">

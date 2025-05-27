@@ -2,26 +2,37 @@ import { useState } from "react";
 import AvailablePlayers from "./AvailablePlayers";
 import SelectedPlayers from "./SelectedPlayers";
 
-const AllPlayers = ({ handleChoosePlayer, selectedPlayers }) => {
-  const [aviable, setAvailable] = useState(true);
+const AllPlayers = ({
+  handleChoosePlayer,
+  selectedPlayers,
+  handleRemovePlayer,
+}) => {
+  const [available, setAvailable] = useState(true);
   const handleAvailable = () => {
     setAvailable(true);
-    console.log("abaible", aviable);
+    console.log("abaible", available);
   };
   const handleSelected = () => {
     setAvailable(false);
-    console.log("selected", aviable);
+    console.log("selected", available);
   };
   return (
     <div className="my-12 ">
       <div className="flex justify-between items-center ">
-        <h1 className="text-2xl font-bold">Available Players</h1>
+        <h1 className="text-2xl font-bold">
+          {" "}
+          {`${
+            available === true
+              ? " Available Players "
+              : `Selected Players : (${selectedPlayers.length}/6)`
+          }`}
+        </h1>
 
         <div className="flex  justify-center items-center border border-gray-300 rounded-md font-bold cursor-pointer gap-0 ">
           <button
             onClick={handleAvailable}
             className={`${
-              aviable === true
+              available === true
                 ? `bg-[#E7FE29] px-4 py-2 cursor-pointer rounded-l-md text-black`
                 : `bg-transparent px-4 py-2 cursor-pointer rounded-l-md text-gray-500`
             }`}
@@ -31,7 +42,7 @@ const AllPlayers = ({ handleChoosePlayer, selectedPlayers }) => {
           <button
             onClick={handleSelected}
             className={`${
-              aviable === false
+              available === false
                 ? `bg-[#E7FE29] px-4 py-2 cursor-pointer rounded-l-md text-black`
                 : `bg-transparent px-4 py-2 cursor-pointer rounded-l-md text-gray-500`
             }`}
@@ -41,10 +52,13 @@ const AllPlayers = ({ handleChoosePlayer, selectedPlayers }) => {
         </div>
       </div>
       <div>
-        {aviable === true ? (
+        {available === true ? (
           <AvailablePlayers handleChoosePlayer={handleChoosePlayer} />
         ) : (
-          <SelectedPlayers selectedPlayers={selectedPlayers} />
+          <SelectedPlayers
+            handleRemovePlayer={handleRemovePlayer}
+            selectedPlayers={selectedPlayers}
+          />
         )}
       </div>
     </div>
