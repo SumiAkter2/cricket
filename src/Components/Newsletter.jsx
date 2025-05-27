@@ -7,7 +7,7 @@ const Newsletter = () => {
   const [showEmails, setShowEmails] = useState([]);
   const [personalMessage, setPersonalMessage] = useState("");
 
-  //   for showing email:
+  //   for showing email when reloading:
   useEffect(() => {
     const storedEmails = getDataFromLs();
     setShowEmails(storedEmails);
@@ -17,8 +17,6 @@ const Newsletter = () => {
       setPersonalMessage(`Welcome back, ${lastEmail}! Thanks for subscribing.`);
     }
   }, []);
-
-  //   console.log(personalMessage);
 
   //   handle submit
   const handleSubmit = (e) => {
@@ -30,7 +28,6 @@ const Newsletter = () => {
     }
     addDataToLs(email);
     const formData = [...existingData, email];
-    // console.log(formData, "ffffffffffffff");
     setShowEmails(formData);
     toast("Email added to subscription list!");
     setPersonalMessage(`Thank you, ${email}, for subscribing!`);
