@@ -1,44 +1,90 @@
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import bannerImg from "../assets/imgs/bg-1.png";
 const Newsletter = () => {
-  const [formData, setFormData] = useState({});
-  const handleNewsletter = (e) => {
-    e.preventDefault();
-    // addDataToLs(formData);
-    // const email = e.target.email.value;
-    // setFormData({ ...formData, email });
-    // console.log(formData);
-  };
+  const [email, setEmail] = useState("");
+  const [showEmails, setShowEmails] = useState([]);
+  const [personalMessage, setPersonalMessage] = useState("");
+
+  //   for showing email:
   useEffect(() => {
-    console.log(typeof formData, "form data:", formData);
-  }, [formData]);
+    const storedEmails = JSON.parse(localStorage.getItem("email")) || [];
+    setShowEmails(storedEmails);
+
+    if (storedEmails.length > 0) {
+      const lastEmail = storedEmails[storedEmails.length - 1];
+      setPersonalMessage(`Welcome back, ${lastEmail}! Thanks for subscribing.`);
+    }
+  }, []);
+
+  console.log(showEmails.length, "dsfsewrswre");
+  console.log(personalMessage);
+
+  //   handle submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const existingData = JSON.parse(localStorage.getItem("email")) || [];
+    if (existingData.includes(email)) {
+      alert("This email is already subscribed!");
+      return;
+    }
+    const formData = [...existingData, email];
+    // console.log(formData, "ffffffffffffff");
+    localStorage.setItem("email", JSON.stringify(formData));
+    toast("Email added to subscription list!");
+    setPersonalMessage(`Thank you, ${email}, for subscribing!`);
+    // console.log(showEmails, "sssssssssssss");
+  };
+
   return (
-    <div className="border border-gray-400 bg-white rounded-2xl p-4 w-1/2 mx-auto relative h-[300px] ">
-      <div className=" h-[300px] ">
-        <img className="rounded-2xl w-full" src={bannerImg} alt="bg-img" />
-        <div className="text-center p-8 rounded-md w-full h-[300px] mx-auto absolute z-30 top-12 left-0">
-          <h1 className="text-3xl font-bold">Subscribe to our Newsletter</h1>
-          <p className="text-xl my-4">
-            Get the latest updates and news right in your inbox!
-          </p>
-          <form onSubmit={handleNewsletter}>
-            <input
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
-              className="shadow outline-none  border border-gray-300 w-1/2 rounded py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
-              id="email"
-              name="email"
-              type="email"
-              placeholder="Enter your email"
-            />
-            <button
-              className="ml-2 shadow bg-gradient-to-r from-[#faa1bd] via-[#eaaa7a] to-[#fbce53] hover:bg-purple-400 focus:shadow-outline focus:outline-none hover:text-white font-bold py-2 px-4 rounded cursor-pointer"
-              type="submit"
-            >
-              Subscribe
-            </button>
-          </form>
+    <div>
+      <div className="mt-6 text-center ">
+        <h2 className="font-bold text-lg mb-2">Subscribed Emails:</h2>
+        {showEmails.length === 0 ? (
+          <p>No emails yet.</p>
+        ) : (
+          <ul className="list-disc list-inside text-gray-700 flex">
+            {showEmails.map((email, index) => (
+              <li key={index}>{email}</li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      <div className="border border-gray-400 bg-white rounded-2xl p-4 w-1/2 mx-auto relative h-[300px] ">
+        <div className=" h-[300px] ">
+          <img className="rounded-2xl w-full" src={bannerImg} alt="bg-img" />
+          <div className="text-center p-8 rounded-md w-full h-[300px] mx-auto absolute z-30 top-12 left-0">
+            <h1 className="text-3xl font-bold">Subscribe to our Newsletter</h1>
+            <p className="text-xl my-4">
+              Get the latest updates and news right in your inbox!
+            </p>
+            <form onSubmit={handleSubmit}>
+              <input
+                className="shadow outline-none  border border-gray-300 w-1/2 rounded py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+                id="email"
+                name="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+              />
+              <button
+                className="ml-2 shadow bg-gradient-to-r from-[#faa1bd] via-[#eaaa7a] to-[#fbce53] hover:bg-purple-400 focus:shadow-outline focus:outline-none hover:text-white font-bold py-2 px-4 rounded cursor-pointer"
+                type="submit"
+              >
+                Subscribe
+              </button>
+            </form>
+            {/* ✅ Personalized Message */}
+            {personalMessage ? (
+              <div className="mb-4 p-4  rounded text-green-800">
+                <span className="font-extrabold">{personalMessage} </span>
+              </div>
+            ) : (
+              "kkkkkkkkkkkkkk"
+            )}
+          </div>
         </div>
       </div>
     </div>

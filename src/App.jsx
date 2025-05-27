@@ -100,7 +100,6 @@ function App() {
         <div className="absolute -top-40">
           <Newsletter />
         </div>
-
         <Footer />
       </div>
 
