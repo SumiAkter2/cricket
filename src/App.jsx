@@ -4,6 +4,7 @@ import AllPlayers from "./Components/AllPlayers";
 import Banner from "./Components/Banner";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
+import Newsletter from "./Components/Newsletter";
 
 function App() {
   const [freeCoin, setFreeCoin] = useState(0);
@@ -94,12 +95,16 @@ function App() {
           selectedPlayers={selectedPlayers}
           handleRemovePlayer={handleRemovePlayer}
         />
-
-        <div className="relative ">
-          <ToastContainer />
-        </div>
       </div>
-      <Footer />
+      <div className="relative">
+        <div className="absolute -top-40">
+          <Newsletter />
+        </div>
+
+        <Footer />
+      </div>
+
+      <ToastContainer />
     </div>
   );
 }

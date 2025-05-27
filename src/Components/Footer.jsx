@@ -1,7 +1,11 @@
+import logoImg from "../assets/imgs/logo-1.png";
 const Footer = () => {
   return (
-    <div>
-      <footer className="md:flex justify-between items-center bg-gray-900 text-neutral-content py-10 text-white px-24 mx-auto">
+    <div className=" bg-gray-900 ">
+      <div className="flex justify-center pt-48 pb-6">
+        <img src={logoImg} alt="logo-img" />
+      </div>
+      <footer className="md:flex justify-between items-center py-10 text-white px-24 mx-auto">
         <nav>
           <h6 className="text-xl ">Services</h6>
           <br />
