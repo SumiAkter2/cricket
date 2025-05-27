@@ -11,7 +11,6 @@ function App() {
   const [selectedPlayers, setSelectedPlayers] = useState([]);
 
   const handleAddFreeCoin = () => {
-    // console.log("added coin", freeCoin);
     setFreeCoin(freeCoin + 80000);
     toast.success("🎉 Free Coin Addded!", {
       position: "top-center",
@@ -29,6 +28,8 @@ function App() {
   const handleChoosePlayer = (choosePlayer) => {
     if (freeCoin >= choosePlayer.price && selectedPlayers.length < 6) {
       setSelectedPlayers([...selectedPlayers, choosePlayer]);
+      setFreeCoin(freeCoin - choosePlayer?.price);
+      console.log(freeCoin);
 
       toast.success("😊 Hurrey! Selected player", {
         position: "top-center",

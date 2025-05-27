@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import bannerImg from "../assets/imgs/bg-1.png";
+import { addDataToLs, getDataFromLs } from "../utilities/localStorage";
 const Newsletter = () => {
   const [email, setEmail] = useState("");
   const [showEmails, setShowEmails] = useState([]);
@@ -8,7 +9,7 @@ const Newsletter = () => {
 
   //   for showing email:
   useEffect(() => {
-    const storedEmails = JSON.parse(localStorage.getItem("email")) || [];
+    const storedEmails = getDataFromLs();
     setShowEmails(storedEmails);
 
     if (storedEmails.length > 0) {
@@ -17,35 +18,36 @@ const Newsletter = () => {
     }
   }, []);
 
-  console.log(showEmails.length, "dsfsewrswre");
-  console.log(personalMessage);
+  //   console.log(personalMessage);
 
   //   handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    const existingData = JSON.parse(localStorage.getItem("email")) || [];
+    const existingData = getDataFromLs();
     if (existingData.includes(email)) {
       alert("This email is already subscribed!");
       return;
     }
+    addDataToLs(email);
     const formData = [...existingData, email];
     // console.log(formData, "ffffffffffffff");
-    localStorage.setItem("email", JSON.stringify(formData));
+    setShowEmails(formData);
     toast("Email added to subscription list!");
     setPersonalMessage(`Thank you, ${email}, for subscribing!`);
-    // console.log(showEmails, "sssssssssssss");
   };
 
   return (
     <div>
-      <div className="mt-6 text-center ">
+      <div className="text-center ">
         <h2 className="font-bold text-lg mb-2">Subscribed Emails:</h2>
         {showEmails.length === 0 ? (
           <p>No emails yet.</p>
         ) : (
-          <ul className="list-disc list-inside text-gray-700 flex">
+          <ul className="gap-x-4 text-gray-700 flex justify-center my-6 ">
             {showEmails.map((email, index) => (
-              <li key={index}>{email}</li>
+              <li key={index} className="list-none ">
+                {email}
+              </li>
             ))}
           </ul>
         )}
@@ -77,12 +79,10 @@ const Newsletter = () => {
               </button>
             </form>
             {/* ✅ Personalized Message */}
-            {personalMessage ? (
+            {personalMessage && (
               <div className="mb-4 p-4  rounded text-green-800">
                 <span className="font-extrabold">{personalMessage} </span>
               </div>
-            ) : (
-              "kkkkkkkkkkkkkk"
             )}
           </div>
         </div>
